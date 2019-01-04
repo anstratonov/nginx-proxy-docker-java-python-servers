@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+    python-server:
+        container_name: python-server
+        build: ./python
+        ports:
+          - "5000:5000"
+        networks:
+          - overlay
+
+    java-server:
+        container_name: java-server
+        build: ./java
+        ports:
+          - "8080:8080"
+        networks:
+          - overlay
+
+    nginx-server:
+        container_name: nginx
+        build: ./nginx
+        ports:
+          - "80:80"
+        networks:
+          - overlay
+
+networks:
+    overlay:
